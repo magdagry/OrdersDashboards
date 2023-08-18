@@ -13,12 +13,12 @@ if(getStatus && getStatus ==="close"){
 }
 
 modeToggle.addEventListener("click", () =>{
-body.classList.toggle("dark");
-if(body.classList.contains("dark")){
-    localStorage.setItem("mode","dark");
-}else{
-    localStorage.setItem("mode","light");
-}
+    body.classList.toggle("dark");
+    if(body.classList.contains("dark")){
+        localStorage.setItem("mode","dark");
+    }else{
+        localStorage.setItem("mode","light");
+    }
 })
 
 sidebarToggle.addEventListener("click", () => {
