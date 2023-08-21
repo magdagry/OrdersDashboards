@@ -459,3 +459,24 @@ nav.close ~ .dashboard .top{
         width: 100%;
     }
 }
+table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 15px;
+}
+
+th {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--box-text-color);
+}
+td {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 20px;
+    white-space: nowrap;
+    color: var(--box-text-color);
+}
+.activity {
+    padding-bottom: 50px
+}
