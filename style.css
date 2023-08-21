@@ -83,11 +83,15 @@ nav.close{
 nav .logo-name{
     display: flex;
     align-items: center;
+    margin-top: 1px;
 }
 nav .logo-image{
     display: flex;
     justify-content: center;
     min-width: 45px;
+    font-size: 25px;
+    margin-top: 1px;
+    color: var(--primary-color);
 }
 nav .logo-image img{
     width: 40px;

@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <title>Admin Dashboard Panel</title>
+    <title>Orders Dashboard</title>
 </head>
 
 <body>
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="file-2389211_1280.webp" alt="">
+                <!-- <img src="file-2389211_1280.webp" alt=""> -->
+                <i class="uil uil-microsoft"></i>
             </div>
 
-            <span class="logo_name">Codingline</span>
+
+            <span class="logo_name">Dashboards</span>
         </div>
 
         <div class="menu-items">
@@ -49,16 +52,16 @@
             </ul>
 
             <ul class="logout-mod">
-                <li>
+                <!-- <li>
                     <a href="#">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="mode">
                     <a href="#">
                         <i class="uil uil-moon"></i>
-                        <span class="link-name">Dark Mode</span>
+                        <span class="link-name">Tryb ciemny</span>
                     </a>
 
                     <div class="mode-toggle">
@@ -75,20 +78,19 @@
             <i class="uil uil-bars sidebar-toggle"></i>
 
 
-            <div class="search-box">
-
+            <!-- <div class="search-box">
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
-            </div>
+            </div> -->
 
-            <img src="man.jpeg" alt="">
+            <!-- <img src="man.jpeg" alt=""> -->
         </div>
 
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-tachometer-fast-alt"></i>
-                    <span class="text">Dashboard</span>
+                    <span class="text">Statystyki</span>
                 </div>
                 <div class="boxes">
                     <div class="box box1">
@@ -111,7 +113,7 @@
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-clock-three"></i>
-                    <span class="text">Recent Activity</span>
+                    <span class="text">Szczegóły</span>
                 </div>
                 <div class="boxes">
                     <div class="box box3">
@@ -228,7 +230,8 @@
         </div>
 
     </section>
-    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 
 </html>
