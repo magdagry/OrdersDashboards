@@ -18,7 +18,7 @@
     --box-text-color: #ededed;
     --box1-color: #1fb400;
     --box2-color: #dc7b02;
-    --box3-color: #dc7b02;
+    --box3-color: #707070;;
     --title-icon-color: #fff;
     
     /* ====== Transition ====== */
@@ -41,7 +41,7 @@ body.dark{
     --box-text-color: #CCC;
     --box1-color: #1fb400;
     --box2-color: #dc7b02;
-    --box3-color: #dc7b02;
+    --box3-color: #707070;;
     --title-icon-color: #CCC;
 }
 /* === Custom Scroll Bar CSS === */
@@ -321,10 +321,13 @@ nav.close ~ .dashboard .top{
     color: var(--box-text-color);
 }
 .boxes .box .text{
-    white-space: nowrap;
+    /* white-space: nowrap; */
     font-size: 18px;
     font-weight: 500;
     color: var(--box-text-color);
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
 }
 .boxes .box .number{
     font-size: 40px;
@@ -364,7 +367,7 @@ nav.close ~ .dashboard .top{
     color: var(--text-color);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     nav{
         width: 73px;
     }
@@ -406,13 +409,27 @@ nav.close ~ .dashboard .top{
     .activity .activity-data{
         overflow-X: scroll;
     }
-}
+    .hidden {
+       display: none;
+    }
+ }
 
 @media (max-width: 780px) {
     .dash-content .boxes .box{
         width: calc(100% / 2 - 15px);
         margin-top: 15px;
     }
+    .hidden, .hidden-data{
+        display: none;
+     }
+     .boxes .box3 {
+        display: block;
+     }
+     .text{
+        white-space: normal!important;
+        word-wrap: break-word;
+        text-align: center;
+     }
 }
 @media (max-width: 560px) {
     .dash-content .boxes .box{
