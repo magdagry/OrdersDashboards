@@ -1,35 +1,93 @@
-$(document).ready(function(){
+const apiUrl = "https://localhost:7282/dashboards/getforsalesdepartment";
+
+$(document).ready(async function(){
 
     console.log('Jest OK!');
+
+    const ordersData = await getData(apiUrl);
+
+    console.log('ordersData: ', ordersData);
+
+    fillBox("numberWaitingCount", ordersData.waitingCount);
+    fillBox("numberInProgress", ordersData.inProgresCount);
+
+
+    const inProgressOrders = ordersData.inProgressOrders;
+   
+
 });
 
-fetch("https://localhost:7282/dashboards/getforsalesdepartment")
-.then(res => {
-    if (!res.ok) {
-        throw new Error(`Błąd HTTP: ${res.status}`);
-    }
-    return res.json();
-})
-    .then(data => {
-        const waitingOrderCount = data.waitingCount;
-        const inProgresCount = data.inProgresCount; 
-        console.log(waitingOrderCount);
-
-        const numberInProgressElement = document.getElementById("numberInProgress")
-        numberInProgressElement.textContent = waitingOrderCount;
-
-        const numberWaitingCountElement = document.getElementById("numberWaitingCount")
-        numberWaitingCountElement.textContent = inProgresCount;
-
+async function getData(url) {
+    let result = await fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Błąd HTTP: ${res.status}`);
+        }
+        return response.json();
     })
-
-    
-        // const $box1 = document.getElementById("box1")
-        // $box1.textContent = 'opracowywane zamówienia: ${inProgresCount}';
-    // })
+    .then(data => {
+        return data;
+    })
     .catch(error => {
         console.error('Błąd podczas pobierania danych z API:', error);
-})
+    })
+
+    return result;
+}
+
+function fillBox(id, count){
+    $("#"+id).text(count);
+}
+
+function createTableRow(orderNumber, orderPositionNumber, quantity, shipDate) {
+    const row = `<tr><th class="hidden">${orderNumber}</th><th>${orderPositionNumber}</th><th>${quantity}</th><th class="hidden-data">${shipDate}</th></tr>`;
+    return row;
+}
+
+
+
+// fetch(apiUrl)
+// .then(res => {
+//     if (!res.ok) {
+//         throw new Error(`Błąd HTTP: ${res.status}`);
+//     }
+//     console.log('res: ', res);
+//     return res.json();
+// })
+//     .then(data => {
+//         console.log('data: ', data);
+//         const waitingOrderCount = data.waitingCount;
+//         const inProgresCount = data.inProgresCount; 
+//         console.log(waitingOrderCount);
+
+//         const numberInProgressElement = document.getElementById("numberInProgress")
+//         numberInProgressElement.textContent = waitingOrderCount;
+
+//         const numberWaitingCountElement = document.getElementById("numberWaitingCount")
+//         numberWaitingCountElement.textContent = inProgresCount;
+
+//         const table = document.getElementById("myTable");
+//         data.waitingOrders.forEach(order => {
+//         const row = table.insertRow();
+//         const orderNumberCell = row.insertCell(0);
+//         const quantityCell = row.insertCell(2);
+//         const shipDateCell = row.insertCell(3);
+
+
+//         orderNumberCell.textContent = order.orderNumber;
+//         orderPositionNumberCell.textContent = order.orderPositionNumber;
+//         quantityCell.textContent = order.quantity;
+//         shipDateCell.textContent = order.shipDate;
+//     })  
+//         // const $box1 = document.getElementById("box1")
+//         // $box1.textContent = 'opracowywane zamówienia: ${inProgresCount}';
+//     // })
+//     .catch(error => {
+//         console.error('Błąd podczas pobierania danych z API:', error);
+// })
+
+
+// })
 
 
 
