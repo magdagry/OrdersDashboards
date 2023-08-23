@@ -13,9 +13,10 @@ $(document).ready(async function(){
 
 
     const inProgressOrders = ordersData.inProgressOrders;
-   
-    createAllRows("inProgresContent", inProgressOrders)
+    const waitingOrders = ordersData.waitingOrders
 
+    createAllRows("inProgressContent", inProgressOrders)
+    createAllRows("waitingContent", waitingOrders);
 });
 
 async function getData(url) {

@@ -343,6 +343,7 @@ nav.close ~ .dashboard .top{
 }
 .boxes .box.box3{
     background-color: var(--box3-color);
+    height: 230px;
 }
 .dash-content .activity .activity-data{
     display: flex;
@@ -413,9 +414,9 @@ nav.close ~ .dashboard .top{
     .activity .activity-data{
         overflow-X: scroll;
     }
-    .hidden {
-       display: none;
-    }
+    .hidden, .hidden-data{
+        display: none;
+     }
  }
 
 @media (max-width: 780px) {
