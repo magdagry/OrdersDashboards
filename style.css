@@ -502,3 +502,9 @@ td {
 .activity {
     padding-bottom: 50px
 }
+h1 {
+    text-align: center;
+    color: var(--box3-color);
+    font-size: 30px;
+    margin-bottom: -30px;
+}

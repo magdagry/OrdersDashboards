@@ -1,12 +1,9 @@
-const apiUrl = "https://localhost:7282/dashboards/getforsalesdepartment";
-
 $(document).ready(async function(){
-
-    console.log('Jest OK!');
-
+    //hide alert
+    const apiUrl = getApiUrl();
     const ordersData = await getData(apiUrl);
 
-    console.log('ordersData: ', ordersData);
+    // console.log('ordersData: ', ordersData);
 
     fillBox("numberWaitingCount", ordersData.waitingCount);
     fillBox("numberInProgress", ordersData.inProgresCount);
@@ -24,6 +21,7 @@ async function getData(url) {
     .then(response => {
         if (!response.ok) {
             throw new Error(`Błąd HTTP: ${res.status}`);
+            // showAlert
         }
         return response.json();
     })
@@ -32,6 +30,7 @@ async function getData(url) {
     })
     .catch(error => {
         console.error('Błąd podczas pobierania danych z API:', error);
+        // showAlert
     })
 
     return result;
@@ -51,6 +50,20 @@ function createAllRows(id, orders) {
     orders.forEach(order => {
         rows += createTableRow(order.orderNumber, order.orderPositionNumber, order.quantity, order.shipDate);
     });
-    console.log('rows: ', rows);
+    // console.log('rows: ', rows);
     $("#"+id).html(rows);
+}
+
+function getApiUrl() {
+    if (window.location.pathname === '/index.html') {
+        return "https://localhost:7282/dashboards/getforsalesdepartment";
+    } else if (window.location.pathname === '/prepare.html') {
+        return "https://localhost:7282/dashboards/productionpreparationdepartment";
+    } else if (window.location.pathname === '/production.html') {
+        return "https://localhost:7282/dashboards/productiondepartment";
+    } else if (window.location.pathname === '/quality.html') {
+        return "https://localhost:7282/dashboards/qualitycontroldepartment";
+    } else if (window.location.pathname === '/packing.html') {
+        return "https://localhost:7282/dashboards/packingdepartment";
+    }
 }
