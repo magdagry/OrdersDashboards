@@ -30,6 +30,21 @@ async function getData(url) {
     })
     .catch(error => {
         console.error('Błąd podczas pobierania danych z API:', error);
+        
+        const alertElement = document.querySelector('.alert');
+        alertElement.style.display = 'block';
+        alertElement.addEventListener('click', function() {
+            // Ukryj alert po kliknięciu
+            alertElement.style.display = 'none';
+        });
+        alertElement.addEventListener('mouseenter', function() {
+            alertElement.style.cursor = 'pointer';
+        });
+
+        alertElement.addEventListener('mouseleave', function() {
+            alertElement.style.cursor = 'auto';
+        });
+        
         // showAlert
     })
 
@@ -56,7 +71,7 @@ function createAllRows(id, orders) {
 
 function getApiUrl() {
     if (window.location.pathname === '/index.html') {
-        return "https://localhost:7282/dashboards/getforsalesdepartment";
+        return "https://localhost:7282/dashboards/getforsalesdepartmentm";
     } else if (window.location.pathname === '/prepare.html') {
         return "https://localhost:7282/dashboards/productionpreparationdepartment";
     } else if (window.location.pathname === '/production.html') {
