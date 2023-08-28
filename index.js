@@ -3,7 +3,7 @@ $(document).ready(async function(){
     const apiUrl = getApiUrl();
     const ordersData = await getData(apiUrl);
 
-    // console.log('ordersData: ', ordersData);
+    console.log('ordersData: ', ordersData);
 
     fillBox("numberWaitingCount", ordersData.waitingCount);
     fillBox("numberInProgress", ordersData.inProgresCount);
@@ -12,7 +12,7 @@ $(document).ready(async function(){
     const inProgressOrders = ordersData.inProgressOrders;
     const waitingOrders = ordersData.waitingOrders
 
-    createAllRows("inProgressContent", inProgressOrders)
+    createAllRows("inProgressContent", inProgressOrders);
     createAllRows("waitingContent", waitingOrders);
 });
 
@@ -21,7 +21,6 @@ async function getData(url) {
     .then(response => {
         if (!response.ok) {
             throw new Error(`Błąd HTTP: ${res.status}`);
-            // showAlert
         }
         return response.json();
     })
@@ -45,7 +44,9 @@ async function getData(url) {
             alertElement.style.cursor = 'auto';
         });
         
-        // showAlert
+        const tablesSection = document.querySelector('.tables');
+        tablesSection.style.display = 'none';
+        
     })
 
     return result;
@@ -71,7 +72,7 @@ function createAllRows(id, orders) {
 
 function getApiUrl() {
     if (window.location.pathname === '/index.html') {
-        return "https://localhost:7282/dashboards/getforsalesdepartmentm";
+        return "https://localhost:7282/dashboards/getforsalesdepartment";
     } else if (window.location.pathname === '/prepare.html') {
         return "https://localhost:7282/dashboards/productionpreparationdepartment";
     } else if (window.location.pathname === '/production.html') {

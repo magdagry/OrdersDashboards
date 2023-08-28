@@ -148,6 +148,16 @@ body.dark li a:hover:before{
     justify-content: center;
     color: var(--black-light-color);
 }
+
+.alert i {
+    font-size: 24px;
+    min-width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
 .menu-items li a .link-name{
     font-size: 18px;
     font-weight: 400;
@@ -510,4 +520,16 @@ h1 {
 }
 .alert {
     display: none;
+    background-color: #f8d7da;
+    border: 1px solid #f1aeb5;
+    color: #58151c;
+    border-radius: 3px;
+    margin-left: 35%;
+    width: 30%;
+    text-align: center;
+    padding: 20px;
 }
+
+/* a .uil {
+    margin-left: -20px;
+} */

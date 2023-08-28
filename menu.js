@@ -25,7 +25,11 @@ sidebarToggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
     if(sidebar.classList.contains("close")){
         localStorage.setItem("status","close");
+        // const sidebarText = document.querySelector(".uil-moon");
+        // sidebarText.style.display = "none";
     }else{
         localStorage.setItem("mode","open");
+        // const sidebarText = document.querySelector(".uil-moon");
+        // sidebarText.style.display = "block";
     }
 })
